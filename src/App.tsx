@@ -41,6 +41,21 @@ import './App.css'
 import { AlertContainer } from './components/alerts/AlertContainer'
 import { useAlert } from './context/AlertContext'
 import { Navbar } from './components/navbar/Navbar'
+import { encode } from './lib/cypher'
+
+function constructWorldeAnalyzerUrl(
+  guesses: string[],
+  hardMode: boolean
+): string {
+  const seed = 1 // we can use a fixed seed
+  const encodedGuesses = encode(seed, guesses.join('').toLowerCase())
+  const url = new URL('https://wordle-analyzer.com/')
+  url.searchParams.set('seed', seed.toString())
+  url.searchParams.set('guesses', encodedGuesses)
+  url.searchParams.set('hm', hardMode ? '1' : '0')
+  url.searchParams.set('skip-spoiler-warning', '1')
+  return url.toString()
+}
 
 function App() {
   const prefersDarkMode = window.matchMedia(
@@ -57,6 +72,7 @@ function App() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
   const [currentRowClass, setCurrentRowClass] = useState('')
   const [isGameLost, setIsGameLost] = useState(false)
+  const [analyzerUrl, setAnalyzerUrl] = useState('')
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.getItem('theme')
       ? localStorage.getItem('theme') === 'dark'
@@ -163,6 +179,12 @@ function App() {
       }, GAME_LOST_INFO_DELAY)
     }
   }, [isGameWon, isGameLost, showSuccessAlert])
+
+  useEffect(() => {
+    if (isQuoteModalOpen) {
+      setAnalyzerUrl(constructWorldeAnalyzerUrl(guesses, isHardMode))
+    }
+  }, [isQuoteModalOpen])
 
   const onChar = (value: string) => {
     if (
@@ -273,6 +295,7 @@ function App() {
         <QuoteModal
           isOpen={isQuoteModalOpen}
           quote={quote}
+          analyzerUrl={analyzerUrl}
           handleClose={() => setIsQuoteModalOpen(false)}
         />
         <StatsModal
