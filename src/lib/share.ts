@@ -1,8 +1,10 @@
 import { getGuessStatuses } from './statuses'
-import { solutionIndex, unicodeSplit } from './words'
-import { GAME_TITLE } from '../constants/strings'
+import { puzzleNumber, unicodeSplit } from './words'
+import { trackEvent } from './analytics'
 import { MAX_CHALLENGES } from '../constants/settings'
 import { UAParser } from 'ua-parser-js'
+
+const SHARE_URL = 'https://hiddenwordle.vercel.app'
 
 const webShareApiDeviceTypes: string[] = ['mobile', 'smarttv', 'wearable']
 const parser = new UAParser()
@@ -17,11 +19,14 @@ export const shareStatus = (
   isHighContrastMode: boolean,
   handleShareToClipboard: () => void
 ) => {
+  trackEvent('share_clicked', { puzzle: puzzleNumber, won: !lost })
+
   const textToShare =
-    `${GAME_TITLE} ${solutionIndex} ${
+    `Hidden Wordle #${puzzleNumber} ${
       lost ? 'X' : guesses.length
     }/${MAX_CHALLENGES}${isHardMode ? '*' : ''}\n\n` +
-    generateEmojiGrid(guesses, getEmojiTiles(isDarkMode, isHighContrastMode))
+    generateEmojiGrid(guesses, getEmojiTiles(isDarkMode, isHighContrastMode)) +
+    `\n\n${SHARE_URL}`
 
   const shareData = { text: textToShare }
 
