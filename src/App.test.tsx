@@ -1,7 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import App from './App'
-import { GAME_TITLE } from './constants/strings'
 
 beforeEach(() => {
   Object.defineProperty(window, 'matchMedia', {
@@ -21,6 +20,8 @@ beforeEach(() => {
 
 test('renders App component', () => {
   render(<App />)
-  const linkElement = screen.getByText(GAME_TITLE)
-  expect(linkElement).toBeInTheDocument()
+  // The masthead logo confirms the app mounted.
+  expect(screen.getByAltText('logo')).toBeInTheDocument()
+  // The on-screen keyboard renders its Enter key.
+  expect(screen.getByText('Enter')).toBeInTheDocument()
 })

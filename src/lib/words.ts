@@ -1,16 +1,22 @@
-import { WORDS } from '../constants/wordlist'
-import { QUOTES } from '../constants/quotes'
-import { QUOTE_MAP } from '../constants/quoteMap'
 import { VALID_GUESSES } from '../constants/validGuesses'
+import {
+  HIDDEN_WORDS,
+  DAILY_ORDER,
+  HiddenWord,
+} from '../constants/hiddenWords'
 import { WRONG_SPOT_MESSAGE, NOT_CONTAINED_MESSAGE } from '../constants/strings'
 import { getGuessStatuses } from './statuses'
 import { default as GraphemeSplitter } from 'grapheme-splitter'
 
+// Every curated Hidden Word (already lowercase) is itself a valid guess.
+const HIDDEN_WORD_SET = new Set(HIDDEN_WORDS.map((w) => w.word))
+const HIDDEN_WORD_BY_ID: { [id: string]: HiddenWord } = Object.fromEntries(
+  HIDDEN_WORDS.map((w) => [w.id, w])
+)
+
 export const isWordInWordList = (word: string) => {
-  return (
-    WORDS.includes(localeAwareLowerCase(word)) ||
-    VALID_GUESSES.includes(localeAwareLowerCase(word))
-  )
+  const lower = localeAwareLowerCase(word)
+  return HIDDEN_WORD_SET.has(lower) || VALID_GUESSES.includes(lower)
 }
 
 export const isWinningWord = (word: string) => {
@@ -77,23 +83,23 @@ export const localeAwareUpperCase = (text: string) => {
 }
 
 export const getWordOfDay = () => {
-  // January 1, 2022 Game Epoch
+  // January 1, 2022 Game Epoch (local midnight)
   const epochMs = new Date(2022, 0).valueOf()
   const now = Date.now()
   const msInDay = 86400000
   const index = Math.floor((now - epochMs) / msInDay)
   const nextday = (index + 1) * msInDay + epochMs
 
-  const solution = localeAwareUpperCase(WORDS[index % WORDS.length])
-  const mapping = QUOTE_MAP[localeAwareLowerCase(solution)]
-  const solutionIndex = mapping.quoteDetail
-  const quote = QUOTES[mapping.quoteIndex]
+  // The puzzle number IS the daily index — dated, stable, and no spoiler.
+  const id = DAILY_ORDER[index % DAILY_ORDER.length]
+  const entry = HIDDEN_WORD_BY_ID[id]
+
   return {
-    solution,
-    solutionIndex,
-    quote,
+    solution: localeAwareUpperCase(entry.word),
+    puzzleNumber: index,
+    passage: entry,
     tomorrow: nextday,
   }
 }
 
-export const { solution, solutionIndex, quote, tomorrow } = getWordOfDay()
+export const { solution, puzzleNumber, passage, tomorrow } = getWordOfDay()

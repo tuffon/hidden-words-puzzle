@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Grid } from './components/grid/Grid'
 import { Keyboard } from './components/keyboard/Keyboard'
 import { InfoModal } from './components/modals/InfoModal'
@@ -24,10 +24,12 @@ import {
   isWordInWordList,
   isWinningWord,
   solution,
-  quote,
+  passage,
+  puzzleNumber,
   findFirstUnusedReveal,
   unicodeLength,
 } from './lib/words'
+import { trackEvent } from './lib/analytics'
 import { addStatsForCompletedGame, loadStats } from './lib/stats'
 import {
   loadGameStateFromLocalStorage,
@@ -87,6 +89,10 @@ function App() {
   })
 
   const [stats, setStats] = useState(() => loadStats())
+
+  // game_start fires at most once per pageload, on the first typed character
+  // while no guesses have been submitted yet.
+  const gameStartFiredRef = useRef(false)
 
   const [isHardMode, setIsHardMode] = useState(
     localStorage.getItem('gameMode')
@@ -164,12 +170,25 @@ function App() {
     }
   }, [isGameWon, isGameLost, showSuccessAlert])
 
+  useEffect(() => {
+    if (isQuoteModalOpen) {
+      trackEvent('quote_viewed', {
+        puzzle: puzzleNumber,
+        passage_id: passage.id,
+      })
+    }
+  }, [isQuoteModalOpen])
+
   const onChar = (value: string) => {
     if (
       unicodeLength(`${currentGuess}${value}`) <= MAX_WORD_LENGTH &&
       guesses.length < MAX_CHALLENGES &&
       !isGameWon
     ) {
+      if (!gameStartFiredRef.current && guesses.length === 0) {
+        gameStartFiredRef.current = true
+        trackEvent('game_start', { puzzle: puzzleNumber })
+      }
       setCurrentGuess(`${currentGuess}${value}`)
     }
   }
@@ -226,14 +245,23 @@ function App() {
     ) {
       setGuesses([...guesses, currentGuess])
       setCurrentGuess('')
+      trackEvent('guess_submitted', {
+        puzzle: puzzleNumber,
+        guess_number: guesses.length + 1,
+      })
 
       if (winningWord) {
         setStats(addStatsForCompletedGame(stats, guesses.length))
+        trackEvent('game_won', {
+          puzzle: puzzleNumber,
+          attempts: guesses.length + 1,
+        })
         return setIsGameWon(true)
       }
 
       if (guesses.length === MAX_CHALLENGES - 1) {
         setStats(addStatsForCompletedGame(stats, guesses.length + 1))
+        trackEvent('game_lost', { puzzle: puzzleNumber })
         setIsGameLost(true)
         showErrorAlert(CORRECT_WORD_MESSAGE(solution), {
           persist: true,
@@ -272,7 +300,7 @@ function App() {
         />
         <QuoteModal
           isOpen={isQuoteModalOpen}
-          quote={quote}
+          passage={passage}
           handleClose={() => setIsQuoteModalOpen(false)}
         />
         <StatsModal

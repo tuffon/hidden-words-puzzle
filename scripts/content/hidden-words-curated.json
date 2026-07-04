@@ -1,0 +1,769 @@
+{
+ "entries": [
+  {
+   "id": "arabic-1",
+   "word": "heart",
+   "reason": "\"Possess a pure, kindly and radiant heart\" — the counsel is about the heart."
+  },
+  {
+   "id": "arabic-2",
+   "word": "sight",
+   "reason": "passage about seeing/knowing for oneself; \"see with thine own eyes\"."
+  },
+  {
+   "id": "arabic-3",
+   "word": "image",
+   "reason": "\"engraved on thee Mine image and revealed to thee My beauty\"."
+  },
+  {
+   "id": "arabic-4",
+   "word": "loved",
+   "reason": "\"I loved thy creation, hence I created thee\" — love is the theme."
+  },
+  {
+   "id": "arabic-5",
+   "word": "reach",
+   "reason": "\"My love can in no wise reach thee\"."
+  },
+  {
+   "id": "arabic-6",
+   "word": "enter",
+   "reason": "\"Enter therein and tarry not\" — invitation to enter Paradise."
+  },
+  {
+   "id": "arabic-7",
+   "word": "thine",
+   "reason": "only 5-letter candidate; a recognizable word (\"regard not thine own\")."
+  },
+  {
+   "id": "arabic-8",
+   "word": "peace",
+   "reason": "\"There is no peace for thee save by renouncing thyself\"."
+  },
+  {
+   "id": "arabic-9",
+   "word": "stray",
+   "reason": "\"he that turneth away shall surely stray and perish\"."
+  },
+  {
+   "id": "arabic-10",
+   "word": "abide",
+   "reason": "\"enter therein that thou mayest abide in safety\"."
+  },
+  {
+   "id": "arabic-11",
+   "word": "light",
+   "reason": "\"Thou art My lamp and My light is in thee\"."
+  },
+  {
+   "id": "arabic-12",
+   "word": "power",
+   "reason": "\"With the hands of power I made thee\"."
+  },
+  {
+   "id": "arabic-13",
+   "word": "abase",
+   "reason": "\"Noble I made thee, wherewith dost thou abase thyself?\"."
+  },
+  {
+   "id": "arabic-14",
+   "word": "glory",
+   "reason": "\"Thou art My glory and My glory fadeth not... the realm of glory\"."
+  },
+  {
+   "id": "arabic-15",
+   "word": "quest",
+   "reason": "\"thy quest will be in vain\"."
+  },
+  {
+   "id": "arabic-16",
+   "word": "light",
+   "reason": "\"O Son of Light!\" — only 5-letter word; unavoidable repeat."
+  },
+  {
+   "id": "arabic-17",
+   "word": "other",
+   "reason": "only 5-letter candidate (\"seek no other helper\")."
+  },
+  {
+   "id": "arabic-18",
+   "word": "which",
+   "reason": "only 5-letter candidate; archaic function word used as last resort."
+  },
+  {
+   "id": "arabic-19",
+   "word": "lover",
+   "reason": "\"that thou mayest be My lover\"."
+  },
+  {
+   "id": "arabic-20",
+   "word": "claim",
+   "reason": "\"My claim on thee is great, it cannot be forgotten\"."
+  },
+  {
+   "id": "arabic-21",
+   "word": "realm",
+   "reason": "\"Return then unto that which is better for thee in the realm on high\"."
+  },
+  {
+   "id": "arabic-22",
+   "word": "noble",
+   "reason": "\"Noble have I created thee, yet thou hast abased thyself\"."
+  },
+  {
+   "id": "arabic-23",
+   "word": "thine",
+   "reason": "only candidates are function words; \"seek thine own\"."
+  },
+  {
+   "id": "arabic-24",
+   "word": "might",
+   "reason": "\"the Lord of might and power\"."
+  },
+  {
+   "id": "arabic-25",
+   "word": "vaunt",
+   "reason": "\"Vaunt not thyself over the poor\" — only candidate; recognizable."
+  },
+  {
+   "id": "arabic-26",
+   "word": "being",
+   "reason": "best available; \"How couldst thou forget thine own faults\" (Son of Being)."
+  },
+  {
+   "id": "arabic-27",
+   "word": null,
+   "reason": "No word in the passage is exactly 5 letters (a-z); nearest thematic words are all 4, 6, or more letters. Forcing a garbage word would violate the rules."
+  },
+  {
+   "id": "arabic-28",
+   "word": "truth",
+   "reason": "\"Know thou of a truth\"."
+  },
+  {
+   "id": "arabic-29",
+   "word": "being",
+   "reason": "best available candidate (Son of Being); others are archaic forms."
+  },
+  {
+   "id": "arabic-30",
+   "word": null,
+   "reason": "No word in the passage is exactly 5 letters (a-z); nearest thematic words are all 4, 6, or more letters. Forcing a garbage word would violate the rules."
+  },
+  {
+   "id": "arabic-31",
+   "word": "death",
+   "reason": "\"death, unheralded, shall come upon thee\"."
+  },
+  {
+   "id": "arabic-32",
+   "word": "death",
+   "reason": "\"I have made death a messenger of joy to thee\"."
+  },
+  {
+   "id": "arabic-33",
+   "word": "court",
+   "reason": "\"To the court of holiness I summon thee\"."
+  },
+  {
+   "id": "arabic-34",
+   "word": "cause",
+   "reason": "\"The spirit of power confirmeth thee in His cause\"."
+  },
+  {
+   "id": "arabic-35",
+   "word": null,
+   "reason": "No word in the passage is exactly 5 letters (a-z); nearest thematic words are all 4, 6, or more letters. Forcing a garbage word would violate the rules."
+  },
+  {
+   "id": "arabic-36",
+   "word": "forth",
+   "reason": "\"mirror forth My beauty\" — chosen over a heart-repeat."
+  },
+  {
+   "id": "arabic-37",
+   "word": null,
+   "reason": "No word in the passage is exactly 5 letters (a-z); nearest thematic words are all 4, 6, or more letters. Forcing a garbage word would violate the rules."
+  },
+  {
+   "id": "arabic-38",
+   "word": "which",
+   "reason": "best available; only candidates are being/which function words."
+  },
+  {
+   "id": "arabic-39",
+   "word": null,
+   "reason": "No word in the passage is exactly 5 letters (a-z); nearest thematic words are all 4, 6, or more letters. Forcing a garbage word would violate the rules."
+  },
+  {
+   "id": "arabic-40",
+   "word": "space",
+   "reason": "\"speed through the immensity of space\"."
+  },
+  {
+   "id": "arabic-41",
+   "word": "shine",
+   "reason": "\"shine upon thee with the light of eternity\"."
+  },
+  {
+   "id": "arabic-42",
+   "word": "arise",
+   "reason": "\"Arise for the triumph of My cause\"."
+  },
+  {
+   "id": "arabic-43",
+   "word": "earth",
+   "reason": "\"Make mention of Me on My earth\"."
+  },
+  {
+   "id": "arabic-44",
+   "word": "sight",
+   "reason": "\"Thy sight is My sight, do thou see therewith\"."
+  },
+  {
+   "id": "arabic-45",
+   "word": "glory",
+   "reason": "\"beneath the canopy of majesty behind the tabernacle of glory\"."
+  },
+  {
+   "id": "arabic-46",
+   "word": "judge",
+   "reason": "\"Judge thou aright, O servant!\"."
+  },
+  {
+   "id": "arabic-47",
+   "word": "blood",
+   "reason": "\"To tinge thy hair with thy blood is greater in My sight\"."
+  },
+  {
+   "id": "arabic-48",
+   "word": "under",
+   "reason": "only candidates are function words; \"fortitude under My decree\"."
+  },
+  {
+   "id": "arabic-49",
+   "word": "rebel",
+   "reason": "\"even as doth the rebel for forgiveness\"."
+  },
+  {
+   "id": "arabic-50",
+   "word": "light",
+   "reason": "\"how wilt thou attain the light in thy love for My beauty?\"."
+  },
+  {
+   "id": "arabic-51",
+   "word": "mercy",
+   "reason": "\"inwardly it is light and mercy\"."
+  },
+  {
+   "id": "arabic-52",
+   "word": "shall",
+   "reason": "only 5-letter candidate; \"both shall pass away\"."
+  },
+  {
+   "id": "arabic-53",
+   "word": "visit",
+   "reason": "\"the Lord of wealth shall visit thee\"."
+  },
+  {
+   "id": "arabic-54",
+   "word": "heart",
+   "reason": "\"If thine heart be set upon this eternal... dominion\"."
+  },
+  {
+   "id": "arabic-55",
+   "word": "world",
+   "reason": "\"Busy not thyself with this world\"."
+  },
+  {
+   "id": "arabic-56",
+   "word": "fancy",
+   "reason": "\"This is My knowledge, and that is thy fancy\"."
+  },
+  {
+   "id": "arabic-57",
+   "word": "offer",
+   "reason": "\"To offer up thy soul is a more glorious thing\"."
+  },
+  {
+   "id": "arabic-58",
+   "word": "being",
+   "reason": "\"The temple of being is My throne\"."
+  },
+  {
+   "id": "arabic-59",
+   "word": "place",
+   "reason": "\"Thy spirit is My place of revelation\" — chosen over a heart-repeat."
+  },
+  {
+   "id": "arabic-60",
+   "word": "bosom",
+   "reason": "\"Put thy hand into My bosom\"."
+  },
+  {
+   "id": "arabic-61",
+   "word": "quaff",
+   "reason": "\"from the chalice of imperishable glory quaff the peerless wine\"."
+  },
+  {
+   "id": "arabic-62",
+   "word": "risen",
+   "reason": "\"the Sun hath risen to the zenith\"."
+  },
+  {
+   "id": "arabic-63",
+   "word": "shone",
+   "reason": "\"The light hath shone on thee from the horizon of the sacred Mount\"."
+  },
+  {
+   "id": "arabic-64",
+   "word": "unity",
+   "reason": "\"My unity is My handiwork\"."
+  },
+  {
+   "id": "arabic-65",
+   "word": "token",
+   "reason": "\"My grandeur the token of My mercy unto thee\"."
+  },
+  {
+   "id": "arabic-66",
+   "word": "minds",
+   "reason": "\"For minds cannot grasp Me nor hearts contain Me\"."
+  },
+  {
+   "id": "arabic-67",
+   "word": "voice",
+   "reason": "\"not with My state and the melody of My voice\"."
+  },
+  {
+   "id": "arabic-68",
+   "word": "exalt",
+   "reason": "\"That no one should exalt himself over the other\"."
+  },
+  {
+   "id": "arabic-69",
+   "word": "guard",
+   "reason": "\"Guard them from the strangers\" — only 5-letter candidate."
+  },
+  {
+   "id": "arabic-70",
+   "word": "stood",
+   "reason": "best available; \"that Stood by His Own Entity\" (contentment theme has no 5-letter word)."
+  },
+  {
+   "id": "arabic-71",
+   "word": "write",
+   "reason": "\"Write all that We have revealed unto thee with the ink of light\"."
+  },
+  {
+   "id": "persian-1",
+   "word": "wings",
+   "reason": "\"on the wings of thy soul thou soarest to the realm of the infinite\"."
+  },
+  {
+   "id": "persian-2",
+   "word": "birds",
+   "reason": "\"those birds, the hearts of men, ... have strayed far\"."
+  },
+  {
+   "id": "persian-3",
+   "word": "plant",
+   "reason": "\"In the garden of thy heart plant naught but the rose of love\"."
+  },
+  {
+   "id": "persian-4",
+   "word": "abode",
+   "reason": "\"to hasten to the abode of his beloved\"."
+  },
+  {
+   "id": "persian-5",
+   "word": "words",
+   "reason": "\"Let deeds, not words, be your adorning\"."
+  },
+  {
+   "id": "persian-6",
+   "word": "sweet",
+   "reason": "\"nor inhale the sweet savors of holiness\"."
+  },
+  {
+   "id": "persian-7",
+   "word": "above",
+   "reason": "\"the glorious heights above ... revealed by the Pen of Glory\"."
+  },
+  {
+   "id": "persian-8",
+   "word": "swift",
+   "reason": "\"Be swift in the path of holiness\"."
+  },
+  {
+   "id": "persian-9",
+   "word": "doubt",
+   "reason": "\"Pass beyond the baser stages of doubt\"."
+  },
+  {
+   "id": "persian-10",
+   "word": "bloom",
+   "reason": "\"delight in aught but in the withered bloom\"."
+  },
+  {
+   "id": "persian-11",
+   "word": "blind",
+   "reason": "\"Blind thine eyes, that thou mayest behold My beauty\"."
+  },
+  {
+   "id": "persian-12",
+   "word": "close",
+   "reason": "\"Close one eye and open the other\"."
+  },
+  {
+   "id": "persian-13",
+   "word": "gazed",
+   "reason": "\"never having gazed upon the beauty of the rose\"."
+  },
+  {
+   "id": "persian-14",
+   "word": "world",
+   "reason": "only 5-letter candidate; \"this mortal world of dust\"."
+  },
+  {
+   "id": "persian-15",
+   "word": "inner",
+   "reason": "\"will no longer unfold the inner mysteries\"."
+  },
+  {
+   "id": "persian-16",
+   "word": "heart",
+   "reason": "\"nor heart to understand\"."
+  },
+  {
+   "id": "persian-17",
+   "word": "gates",
+   "reason": "\"The gates that open on the Placeless stand wide\"."
+  },
+  {
+   "id": "persian-18",
+   "word": "learn",
+   "reason": "\"learn the secret of divine and consummate wisdom\"."
+  },
+  {
+   "id": "persian-19",
+   "word": "shade",
+   "reason": "\"beneath the shade of the tree of life\"."
+  },
+  {
+   "id": "persian-20",
+   "word": "faith",
+   "reason": "\"the one true faith of God\"."
+  },
+  {
+   "id": "persian-21",
+   "word": "sword",
+   "reason": "\"The sword of thy rebellion hath felled the tree of thy hope\"."
+  },
+  {
+   "id": "persian-22",
+   "word": "touch",
+   "reason": "\"nor did thy hand touch the hem of His robe\"."
+  },
+  {
+   "id": "persian-23",
+   "word": "youth",
+   "reason": "\"the beauty of the celestial Youth is veiled\"."
+  },
+  {
+   "id": "persian-24",
+   "word": "flock",
+   "reason": "\"intent upon My flock ... wolves\"."
+  },
+  {
+   "id": "persian-25",
+   "word": "water",
+   "reason": "\"like clear but bitter water\"."
+  },
+  {
+   "id": "persian-26",
+   "word": "enter",
+   "reason": "\"that the Friend may enter His home\"."
+  },
+  {
+   "id": "persian-27",
+   "word": "human",
+   "reason": "\"except the human heart, which I have made the habitation of My beauty\"."
+  },
+  {
+   "id": "persian-28",
+   "word": "flash",
+   "reason": "\"even as the flash of the spirit, I returned\"."
+  },
+  {
+   "id": "persian-29",
+   "word": "grace",
+   "reason": "\"guarded thee by the essence of My grace and favor\"."
+  },
+  {
+   "id": "persian-30",
+   "word": "found",
+   "reason": "\"found thee upon the bed of heedlessness fast asleep\"."
+  },
+  {
+   "id": "persian-31",
+   "word": "dwell",
+   "reason": "\"fire and water, cannot dwell together in one heart\"."
+  },
+  {
+   "id": "persian-32",
+   "word": "winds",
+   "reason": "\"quench it not with the contrary winds of self and passion\"."
+  },
+  {
+   "id": "persian-33",
+   "word": "seeds",
+   "reason": "\"Sow the seeds of My divine wisdom in the pure soil of thy heart\"."
+  },
+  {
+   "id": "persian-34",
+   "word": "flame",
+   "reason": "\"be not consumed with the flame of desire and passion\"."
+  },
+  {
+   "id": "persian-35",
+   "word": "torch",
+   "reason": "\"kindle within your hearts the everlasting torch of divine guidance\"."
+  },
+  {
+   "id": "persian-36",
+   "word": "speak",
+   "reason": "\"The wise are they that speak not unless they obtain a hearing\"."
+  },
+  {
+   "id": "persian-37",
+   "word": "river",
+   "reason": "\"This is the river of everlasting life\"."
+  },
+  {
+   "id": "persian-38",
+   "word": "burst",
+   "reason": "\"Burst thy cage asunder\"."
+  },
+  {
+   "id": "persian-39",
+   "word": "above",
+   "reason": "\"ascend unto the glorious meads above\"."
+  },
+  {
+   "id": "persian-40",
+   "word": "seize",
+   "reason": "\"Seize thy chance, for it will come to thee no more\"."
+  },
+  {
+   "id": "persian-41",
+   "word": "heart",
+   "reason": "\"none but the pure in heart can comprehend\"."
+  },
+  {
+   "id": "persian-42",
+   "word": "purge",
+   "reason": "\"Purge thy heart from malice\"."
+  },
+  {
+   "id": "persian-43",
+   "word": "house",
+   "reason": "\"no man should enter the house of his friend\"."
+  },
+  {
+   "id": "persian-44",
+   "word": "frame",
+   "reason": "\"put away this mortal frame\"."
+  },
+  {
+   "id": "persian-45",
+   "word": "thorn",
+   "reason": "\"Ye turn your eyes towards the thorn, and name it a flower\"."
+  },
+  {
+   "id": "persian-46",
+   "word": "sweet",
+   "reason": "\"The sweet savors of holiness are breathing\"."
+  },
+  {
+   "id": "persian-47",
+   "word": null,
+   "reason": "No word in the passage is exactly 5 letters (a-z); nearest thematic words are all 4, 6, or more letters. Forcing a garbage word would violate the rules."
+  },
+  {
+   "id": "persian-48",
+   "word": "pride",
+   "reason": "\"Pride not yourselves in your glory\"."
+  },
+  {
+   "id": "persian-49",
+   "word": null,
+   "reason": "No word in the passage is exactly 5 letters (a-z); nearest thematic words are all 4, 6, or more letters. Forcing a garbage word would violate the rules."
+  },
+  {
+   "id": "persian-50",
+   "word": "loved",
+   "reason": "\"the contented hath ever been loved and praised\" — only 5-letter candidate."
+  },
+  {
+   "id": "persian-51",
+   "word": "value",
+   "reason": "\"belittle not the value thereof\"."
+  },
+  {
+   "id": "persian-52",
+   "word": "enemy",
+   "reason": "\"Ye have suffered My enemy to enter My house\"."
+  },
+  {
+   "id": "persian-53",
+   "word": "great",
+   "reason": "best available; \"By the Most Great Name!\" (wealth/riches have no 5-letter form)."
+  },
+  {
+   "id": "persian-54",
+   "word": "trust",
+   "reason": "\"The poor in your midst are My trust; guard ye My trust\"."
+  },
+  {
+   "id": "persian-55",
+   "word": "peace",
+   "reason": "\"in perfect peace advance into the realm of poverty\"."
+  },
+  {
+   "id": "persian-56",
+   "word": "words",
+   "reason": "\"give ear to the words of His chosen ones\"."
+  },
+  {
+   "id": "persian-57",
+   "word": "heart",
+   "reason": "\"turneth the radiance of the heart into infernal fire\" — only 5-letter candidate."
+  },
+  {
+   "id": "persian-58",
+   "word": "drunk",
+   "reason": "\"he hath drunk the cup of eternal life\"."
+  },
+  {
+   "id": "persian-59",
+   "word": "think",
+   "reason": "\"Think not the secrets of hearts are hidden\"."
+  },
+  {
+   "id": "persian-60",
+   "word": "grace",
+   "reason": "\"is of Our grace and favor\"."
+  },
+  {
+   "id": "persian-61",
+   "word": "ocean",
+   "reason": "\"A dewdrop out of the fathomless ocean of My mercy\"."
+  },
+  {
+   "id": "persian-62",
+   "word": "dregs",
+   "reason": "\"open them not to foul and mortal dregs\"."
+  },
+  {
+   "id": "persian-63",
+   "word": "think",
+   "reason": "\"Think not that which ye have committed hath been effaced\"."
+  },
+  {
+   "id": "persian-64",
+   "word": "hands",
+   "reason": "\"Withdraw your hands from tyranny\"."
+  },
+  {
+   "id": "persian-65",
+   "word": "fiery",
+   "reason": "\"the fiery charger of passion\" — only 5-letter candidate."
+  },
+  {
+   "id": "persian-66",
+   "word": "every",
+   "reason": "\"every one of you knoweth his own self\" — only 5-letter candidate."
+  },
+  {
+   "id": "persian-67",
+   "word": "gloom",
+   "reason": "\"deeds done in the gloom of night\"."
+  },
+  {
+   "id": "persian-68",
+   "word": "first",
+   "reason": "\"touched first thine own garment\"."
+  },
+  {
+   "id": "persian-69",
+   "word": "favor",
+   "reason": "\"find favor at the court of glory\"."
+  },
+  {
+   "id": "persian-70",
+   "word": "freed",
+   "reason": "\"thou wouldst be freed from destruction and death\"."
+  },
+  {
+   "id": "persian-71",
+   "word": "trace",
+   "reason": "\"no trace thereof remaineth\"."
+  },
+  {
+   "id": "persian-72",
+   "word": "worth",
+   "reason": "\"thy worth may be made resplendent and manifest\"."
+  },
+  {
+   "id": "persian-73",
+   "word": "array",
+   "reason": "\"array all things with the apparel of life\"."
+  },
+  {
+   "id": "persian-74",
+   "word": "color",
+   "reason": "\"purging from every color\"."
+  },
+  {
+   "id": "persian-75",
+   "word": "bough",
+   "reason": "\"warbleth upon the bough\"."
+  },
+  {
+   "id": "persian-76",
+   "word": "deeds",
+   "reason": "\"Strive then with heart and soul to distinguish yourselves by your deeds\"."
+  },
+  {
+   "id": "persian-77",
+   "word": "doves",
+   "reason": "\"certain doves of holiness were sore tried within the claws\"."
+  },
+  {
+   "id": "persian-78",
+   "word": "green",
+   "reason": "\"spring up fresh and green from the holy city of the heart\"."
+  },
+  {
+   "id": "persian-79",
+   "word": "raven",
+   "reason": "\"that thou mayest dress My raven locks\"."
+  },
+  {
+   "id": "persian-80",
+   "word": "fruit",
+   "reason": "\"ye must give forth goodly and wondrous fruits\"."
+  },
+  {
+   "id": "persian-81",
+   "word": "yield",
+   "reason": "\"they that yield no fruit on earth\"."
+  },
+  {
+   "id": "persian-82",
+   "word": "spend",
+   "reason": "\"spend upon themselves and upon their kindred for the love of God\"."
+  }
+ ]
+}
