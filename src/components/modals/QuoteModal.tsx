@@ -5,9 +5,15 @@ type Props = {
   isOpen: boolean
   passage: HiddenWord
   handleClose: () => void
+  onSeeAnalysis?: () => void
 }
 
-export const QuoteModal = ({ isOpen, passage, handleClose }: Props) => {
+export const QuoteModal = ({
+  isOpen,
+  passage,
+  handleClose,
+  onSeeAnalysis,
+}: Props) => {
   // The invocation header ends at the '!' that closes the "O …" vocative —
   // not simply the first '!': Persian 45 opens "Alas! Alas! O Lovers of
   // Worldly Desire!", all of which is invocation. Text is VERBATIM; only the
@@ -19,9 +25,9 @@ export const QuoteModal = ({ isOpen, passage, handleClose }: Props) => {
   const header =
     bangIndex === -1 ? passage.text : passage.text.slice(0, bangIndex + 1)
   const body = bangIndex === -1 ? '' : passage.text.slice(bangIndex + 1).trim()
-  const citation = `${
-    passage.collection === 'arabic' ? 'Arabic' : 'Persian'
-  } ${passage.number} · The Hidden Words of Bahá'u'lláh`
+  const citation = `${passage.collection === 'arabic' ? 'Arabic' : 'Persian'} ${
+    passage.number
+  } · The Hidden Words of Bahá'u'lláh`
 
   return (
     <BaseModal title="" isOpen={isOpen} handleClose={handleClose}>
@@ -42,6 +48,15 @@ export const QuoteModal = ({ isOpen, passage, handleClose }: Props) => {
       >
         Read at bahai.org
       </a>
+      {onSeeAnalysis && (
+        <button
+          type="button"
+          onClick={onSeeAnalysis}
+          className="mt-4 block text-xs text-indigo-600 hover:underline dark:text-indigo-400"
+        >
+          See how you solved it →
+        </button>
+      )}
     </BaseModal>
   )
 }
