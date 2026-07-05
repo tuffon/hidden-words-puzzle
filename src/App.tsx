@@ -4,10 +4,12 @@ import { Keyboard } from './components/keyboard/Keyboard'
 import { InfoModal } from './components/modals/InfoModal'
 import { StatsModal } from './components/modals/StatsModal'
 import { QuoteModal } from './components/modals/QuoteModal'
+import { AnalysisModal } from './components/modals/AnalysisModal'
 import { SettingsModal } from './components/modals/SettingsModal'
 import {
   WIN_MESSAGES,
   GAME_COPIED_MESSAGE,
+  SOLUTION_LINK_COPIED_MESSAGE,
   NOT_ENOUGH_LETTERS_MESSAGE,
   WORD_NOT_FOUND_MESSAGE,
   CORRECT_WORD_MESSAGE,
@@ -28,7 +30,9 @@ import {
   puzzleNumber,
   findFirstUnusedReveal,
   unicodeLength,
+  localeAwareUpperCase,
 } from './lib/words'
+import { encode, decode } from './lib/cypher'
 import { trackEvent } from './lib/analytics'
 import { addStatsForCompletedGame, loadStats } from './lib/stats'
 import {
@@ -57,6 +61,8 @@ function App() {
   const [isStatsModalOpen, setIsStatsModalOpen] = useState(false)
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false)
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
+  const [isAnalysisModalOpen, setIsAnalysisModalOpen] = useState(false)
+  const [analysisGuesses, setAnalysisGuesses] = useState<string[]>([])
   const [currentRowClass, setCurrentRowClass] = useState('')
   const [isGameLost, setIsGameLost] = useState(false)
   const [isDarkMode, setIsDarkMode] = useState(
@@ -110,6 +116,38 @@ function App() {
     }
   }, [])
 
+  // Inbound "?solve=" links: someone shared how they solved it. Decode the
+  // guesses and open the analysis in-app. Anything malformed is ignored
+  // silently so a bad link never disrupts normal play.
+  useEffect(() => {
+    try {
+      const solve = new URLSearchParams(window.location.search).get('solve')
+      if (!solve) {
+        return
+      }
+      const cleaned = solve.toLowerCase()
+      if (!/^[a-z]+$/.test(cleaned) || cleaned.length % MAX_WORD_LENGTH !== 0) {
+        return
+      }
+      const decoded = decode(1, cleaned)
+      if (
+        !/^[a-z]+$/.test(decoded) ||
+        decoded.length === 0 ||
+        decoded.length % MAX_WORD_LENGTH !== 0
+      ) {
+        return
+      }
+      const parsed: string[] = []
+      for (let i = 0; i < decoded.length; i += MAX_WORD_LENGTH) {
+        parsed.push(localeAwareUpperCase(decoded.slice(i, i + MAX_WORD_LENGTH)))
+      }
+      setAnalysisGuesses(parsed)
+      setIsAnalysisModalOpen(true)
+    } catch {
+      // malformed share link — ignore
+    }
+  }, [])
+
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add('dark')
@@ -145,6 +183,16 @@ function App() {
 
   const clearCurrentRowClass = () => {
     setCurrentRowClass('')
+  }
+
+  const handleShareAnalysis = (guessesToShare: string[]) => {
+    if (guessesToShare.length === 0) {
+      return
+    }
+    const encoded = encode(1, guessesToShare.join('').toLowerCase())
+    const url = `https://hiddenwordle.vercel.app/?solve=${encoded}`
+    navigator.clipboard.writeText(url)
+    showSuccessAlert(SOLUTION_LINK_COPIED_MESSAGE)
   }
 
   useEffect(() => {
@@ -302,6 +350,30 @@ function App() {
           isOpen={isQuoteModalOpen}
           passage={passage}
           handleClose={() => setIsQuoteModalOpen(false)}
+          onSeeAnalysis={
+            isGameWon
+              ? () => {
+                  setAnalysisGuesses(guesses)
+                  setIsAnalysisModalOpen(true)
+                }
+              : undefined
+          }
+        />
+        <AnalysisModal
+          isOpen={isAnalysisModalOpen}
+          guesses={analysisGuesses}
+          passage={
+            analysisGuesses.length > 0 &&
+            analysisGuesses[analysisGuesses.length - 1] === solution
+              ? passage
+              : undefined
+          }
+          handleClose={() => setIsAnalysisModalOpen(false)}
+          onShare={
+            analysisGuesses.length > 0
+              ? () => handleShareAnalysis(analysisGuesses)
+              : undefined
+          }
         />
         <StatsModal
           isOpen={isStatsModalOpen}
