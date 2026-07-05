@@ -55,14 +55,17 @@
     <title>%REACT_APP_GAME_NAME%</title>
 
     <% if (process.env.NODE_ENV === 'production' && process.env.REACT_APP_GOOGLE_MEASUREMENT_ID != null) { %>
-      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <!-- Global site tag (gtag.js) - Google Analytics.
+           Hostname-guarded so staging and preview deployments never pollute
+           production analytics (Vercel builds every branch with the same env). -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=%REACT_APP_GOOGLE_MEASUREMENT_ID%"></script>
       <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', '%REACT_APP_GOOGLE_MEASUREMENT_ID%');
+        if (window.location.hostname === 'hiddenwordle.vercel.app') {
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '%REACT_APP_GOOGLE_MEASUREMENT_ID%');
+        }
       </script>
     <% } %>
     <% if (process.env.NODE_ENV === 'production' && process.env.REACT_APP_PLAUSIBLE_DOMAIN != null) { %>
