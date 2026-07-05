@@ -1,25 +1,47 @@
 import { BaseModal } from './BaseModal'
-import { encode, decode } from '../../lib/cypher'
+import { HiddenWord } from '../../constants/hiddenWords'
 
 type Props = {
   isOpen: boolean
-  quote: string
-  analyzerUrl: string
+  passage: HiddenWord
   handleClose: () => void
 }
 
-export const QuoteModal = ({ isOpen, quote, analyzerUrl, handleClose }: Props) => {
-  let quoteArr = quote.split('\n')
-  let header = quoteArr[0]
-  let body = quoteArr[1]
+export const QuoteModal = ({ isOpen, passage, handleClose }: Props) => {
+  // The invocation header ends at the '!' that closes the "O …" vocative —
+  // not simply the first '!': Persian 45 opens "Alas! Alas! O Lovers of
+  // Worldly Desire!", all of which is invocation. Text is VERBATIM; only the
+  // display is styled (uppercase via CSS), the data is never mutated.
+  const vocativeStart = passage.text.startsWith('O ')
+    ? 0
+    : passage.text.indexOf(' O ') + 1
+  const bangIndex = passage.text.indexOf('!', Math.max(vocativeStart, 0))
+  const header =
+    bangIndex === -1 ? passage.text : passage.text.slice(0, bangIndex + 1)
+  const body = bangIndex === -1 ? '' : passage.text.slice(bangIndex + 1).trim()
+  const citation = `${
+    passage.collection === 'arabic' ? 'Arabic' : 'Persian'
+  } ${passage.number} · The Hidden Words of Bahá'u'lláh`
+
   return (
-    <BaseModal title={header} isOpen={isOpen} handleClose={handleClose}>
-      <p className="text-sm text-gray-500 dark:text-gray-300">
+    <BaseModal title="" isOpen={isOpen} handleClose={handleClose}>
+      <h3 className="quote-header text-base font-semibold text-gray-900 dark:text-gray-100">
+        {header}
+      </h3>
+      <p className="mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
         {body}
       </p>
-      <p className="text-xs text-gray-400 dark:text-gray-300 mt-4">
-        Would you like to analyze your guesses? <a target="_blank" href={analyzerUrl} className="text-blue-400">Click here</a>
+      <p className="mt-4 text-xs italic text-gray-500 dark:text-gray-400">
+        {citation}
       </p>
+      <a
+        className="mt-2 inline-block text-xs text-indigo-600 hover:underline dark:text-indigo-400"
+        href={passage.link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Read at bahai.org
+      </a>
     </BaseModal>
   )
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Grid } from './components/grid/Grid'
 import { Keyboard } from './components/keyboard/Keyboard'
 import { InfoModal } from './components/modals/InfoModal'
@@ -24,10 +24,12 @@ import {
   isWordInWordList,
   isWinningWord,
   solution,
-  quote,
+  passage,
+  puzzleNumber,
   findFirstUnusedReveal,
   unicodeLength,
 } from './lib/words'
+import { trackEvent } from './lib/analytics'
 import { addStatsForCompletedGame, loadStats } from './lib/stats'
 import {
   loadGameStateFromLocalStorage,
@@ -41,21 +43,6 @@ import './App.css'
 import { AlertContainer } from './components/alerts/AlertContainer'
 import { useAlert } from './context/AlertContext'
 import { Navbar } from './components/navbar/Navbar'
-import { encode } from './lib/cypher'
-
-function constructWorldeAnalyzerUrl(
-  guesses: string[],
-  hardMode: boolean
-): string {
-  const seed = 1 // we can use a fixed seed
-  const encodedGuesses = encode(seed, guesses.join('').toLowerCase())
-  const url = new URL('https://wordle-analyzer.com/')
-  url.searchParams.set('seed', seed.toString())
-  url.searchParams.set('guesses', encodedGuesses)
-  url.searchParams.set('hm', hardMode ? '1' : '0')
-  url.searchParams.set('skip-spoiler-warning', '1')
-  return url.toString()
-}
 
 function App() {
   const prefersDarkMode = window.matchMedia(
@@ -72,7 +59,6 @@ function App() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
   const [currentRowClass, setCurrentRowClass] = useState('')
   const [isGameLost, setIsGameLost] = useState(false)
-  const [analyzerUrl, setAnalyzerUrl] = useState('')
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.getItem('theme')
       ? localStorage.getItem('theme') === 'dark'
@@ -103,6 +89,10 @@ function App() {
   })
 
   const [stats, setStats] = useState(() => loadStats())
+
+  // game_start fires at most once per pageload, on the first typed character
+  // while no guesses have been submitted yet.
+  const gameStartFiredRef = useRef(false)
 
   const [isHardMode, setIsHardMode] = useState(
     localStorage.getItem('gameMode')
@@ -182,7 +172,10 @@ function App() {
 
   useEffect(() => {
     if (isQuoteModalOpen) {
-      setAnalyzerUrl(constructWorldeAnalyzerUrl(guesses, isHardMode))
+      trackEvent('quote_viewed', {
+        puzzle: puzzleNumber,
+        passage_id: passage.id,
+      })
     }
   }, [isQuoteModalOpen])
 
@@ -192,6 +185,10 @@ function App() {
       guesses.length < MAX_CHALLENGES &&
       !isGameWon
     ) {
+      if (!gameStartFiredRef.current && guesses.length === 0) {
+        gameStartFiredRef.current = true
+        trackEvent('game_start', { puzzle: puzzleNumber })
+      }
       setCurrentGuess(`${currentGuess}${value}`)
     }
   }
@@ -248,14 +245,23 @@ function App() {
     ) {
       setGuesses([...guesses, currentGuess])
       setCurrentGuess('')
+      trackEvent('guess_submitted', {
+        puzzle: puzzleNumber,
+        guess_number: guesses.length + 1,
+      })
 
       if (winningWord) {
         setStats(addStatsForCompletedGame(stats, guesses.length))
+        trackEvent('game_won', {
+          puzzle: puzzleNumber,
+          attempts: guesses.length + 1,
+        })
         return setIsGameWon(true)
       }
 
       if (guesses.length === MAX_CHALLENGES - 1) {
         setStats(addStatsForCompletedGame(stats, guesses.length + 1))
+        trackEvent('game_lost', { puzzle: puzzleNumber })
         setIsGameLost(true)
         showErrorAlert(CORRECT_WORD_MESSAGE(solution), {
           persist: true,
@@ -294,8 +300,7 @@ function App() {
         />
         <QuoteModal
           isOpen={isQuoteModalOpen}
-          quote={quote}
-          analyzerUrl={analyzerUrl}
+          passage={passage}
           handleClose={() => setIsQuoteModalOpen(false)}
         />
         <StatsModal

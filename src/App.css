@@ -1,3 +1,9 @@
 html.dark {
   background-color: #121213;
 }
+
+/* Quote modal invocation line — displayed uppercase; underlying text stays verbatim. */
+.quote-header {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
