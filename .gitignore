@@ -23,4 +23,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .vercel
-.env
+.envplaywright-report/
+test-results/
+e2e/last-run-list-output.txt
+/blob-report/
+/playwright/.cache/

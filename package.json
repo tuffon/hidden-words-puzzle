@@ -34,6 +34,7 @@
     "lint": "prettier --check src",
     "start": "react-scripts start",
     "test": "react-scripts test",
+    "test:e2e": "playwright test",
     "prepare": "husky install"
   },
   "eslintConfig": {
@@ -55,6 +56,7 @@
     ]
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.1",
     "autoprefixer": "^10.4.2",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.2",
